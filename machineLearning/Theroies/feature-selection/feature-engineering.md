@@ -1,11 +1,11 @@
-Feature Engineering :- It refers to the process of using domain knowledge to select and transform the most relevant variables from raw data when creating a predictive model using 
+Feature Engineering :- It refers to the process of using domain knowledge to select and transform the most relevant variables from raw data when creating a predictive model using.
 ml or statistical modelling.
 
 Goal :- Goal of feature engineering and selection is to improve the performance of ml algos.
 
-feature selection --> selecting optimal and best features for ml models.
+Feature selection --> selecting optimal and best features for ml models.
 
-=> feature selection techniques find a smaller subset for many dimensional data set to create data model.
+=> Feature selection techniques find a smaller subset for many dimensional data set to create data model.
 => The complexity depends upon size of data sample,no of input dimension, and selected dimensions k.
 => It is a technique of finding k features of the d dimensions that gives us the most info and discards the other (d-k) dimensions.
 
@@ -25,8 +25,8 @@ a) Filter method.
 
         ==> Types of Filter method of Feature selection :-
         
-        i) Information gain
-        ii) Chi-Square method
+        i) Information gain.
+        ii) Chi-Square method.
         iii) Variance Threshold.
 
 
@@ -39,7 +39,7 @@ a) Filter method.
 
                 => The basic idea is to rank the features on the basis of their information gain values and select the 
                 top k features that contribute the most to the prediction task.
-
+                
                 Calculation of information gain :-
                 a) Entropy (H(y)) :- Entropy is a measure of randomness or uncertainity in the target variable y.
                 for classification problem :-  [ H(y) = -sum of(p(y)) * log2(p(y)) ] (p(y) is probablity of particular class y occuring in the target variable.)
