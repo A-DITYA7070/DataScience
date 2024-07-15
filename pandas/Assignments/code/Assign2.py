@@ -51,3 +51,94 @@
 
 # df = pd.DataFrame(data)
 # print(NewColumnWordCount(df))
+
+# import pandas as pd
+# # Function to extract part of email before '@'
+# def extract_username(email):
+#     if "@" in email:
+#         return email.split('@')[0]
+#     else:
+#         return None
+# # Function to create new column Username and assign usernames
+# def NewColumnUsername(df):
+#     ele = df["Email"]
+#     for i in range(0,len(ele)):
+#         df["Username"] = df["Email"].apply(extract_username)
+#     return df
+
+# data = {
+#     "Email":["adi@gmail.com","raj@gmail.com","singh@gmail.com","rahul@gmail.com","raushan@gmail.com","raj.sahul@gmail.com"]
+# }
+
+# df = pd.DataFrame(data)
+# print(NewColumnUsername(df))
+
+# import pandas as pd
+# def Func(df):
+#     filtered_df = df[(df['A'] > 5) & (df['B'] < 10)]
+#     return filtered_df
+
+# data = {
+#     'A': [3, 8, 6, 2, 9],
+#     'B': [5, 2, 9, 3, 1],
+#     'C': [1, 7, 4, 5, 2]
+# }
+
+# df = pd.DataFrame(data)
+# print(Func(df))
+
+
+import pandas as pd
+# def Func(df):
+#     mean = df["Values"].mean()
+#     median = df["Values"].median()
+#     standard_deviation = df["Values"].std()
+#     return {
+#         "mean":mean,
+#         "median":median,
+#         "standard deviation":standard_deviation
+#     }
+
+# data = {
+#     "Values":[10,20,30,40,50]
+# }
+
+# df = pd.DataFrame(data)
+# print(Func(df))
+
+
+# def calculate_moving_average(df):
+#     df = df.sort_values('Date')
+#     df['MovingAverage'] = df['Sales'].rolling(window=7, min_periods=1).mean()
+#     return df
+
+# data = {
+#     'Date': pd.date_range(start='2021-01-01', periods=10, freq='D'),
+#     'Sales': [200, 220, 210, 230, 250, 240, 260, 270, 280, 290]
+# }
+
+# df = pd.DataFrame(data)
+# result_df = calculate_moving_average(df)
+# print(result_df)
+
+
+
+
+
+import pandas as pd
+
+def add_weekday_column(df):
+    df['Date'] = pd.to_datetime(df['Date'])
+    df['Weekday'] = df['Date'].dt.day_name()
+    return df
+
+data = {
+    'Date': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04', '2023-01-05']
+}
+
+df = pd.DataFrame(data)
+result_df = add_weekday_column(df)
+print(result_df)
+
+    
+        
