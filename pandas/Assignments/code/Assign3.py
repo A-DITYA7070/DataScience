@@ -25,12 +25,12 @@
 
 import pandas as pd
 import numpy as np
-columns = ['column_1', 'column_2', 'column_3', 'column_4', 'column_5', 'column_6']
-indices = [1,2,3,4,5,6]
+# columns = ['column_1', 'column_2', 'column_3', 'column_4', 'column_5', 'column_6']
+# indices = [1,2,3,4,5,6]
 #Creating a dataframe:
-df1 = pd.DataFrame(np.random.rand(6,6), columns = columns, index = indices)
+# df1 = pd.DataFrame(np.random.rand(6,6), columns = columns, index = indices)
 
-df1['mean'] = df1.mean(axis=1)
+# df1['mean'] = df1.mean(axis=1)
 
 # # print(df1)
 # sd = df1['column_2'].std()
@@ -39,3 +39,33 @@ df1['mean'] = df1.mean(axis=1)
 # df1.at[2,'column_2'] = "raj"
 # df1.iloc[1,1] = "singh"
 # print(df1)
+
+
+# date_time = pd.Timestamp.now()
+# print(date_time)
+
+
+
+def get_date_input(prompt):
+    """Prompt the user for a date input and return a pandas Timestamp."""
+    date_str = input(prompt)
+    return pd.Timestamp(date_str)
+
+def main():
+    # Get the two dates from the user
+    date1 = get_date_input("Enter the first date (YYYY-MM-DD): ")
+    date2 = get_date_input("Enter the second date (YYYY-MM-DD): ")
+
+    # Calculate the difference
+    time_delta = date2 - date1
+
+    # Extract days, hours, and minutes
+    days = time_delta.days
+    hours, remainder = divmod(time_delta.seconds, 3600)
+    minutes, _ = divmod(remainder, 60)
+
+    # Display the result
+    print(f"The difference is {days} days, {hours} hours, and {minutes} minutes.")
+
+if __name__ == "__main__":
+    main()

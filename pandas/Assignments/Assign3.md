@@ -75,4 +75,115 @@ ans :-  The window functions in pandas provide a way to perform operations over 
             print(df)
 
 
-Q7.      
+Q7.      Write a code to print only the current month and year at the time of answering this question.
+ans:-    import pandas as pd
+         date_time = pd.Timestamp.now()
+         print(date_time)
+
+Q8.     Write a Python program that takes in two dates as input (in the format YYYY-MM-DD) and
+        calculates the difference between them in days, hours, and minutes using Pandas time delta. The
+        program should prompt the user to enter the dates and display the result.
+ans:- 
+        import pandas as pd
+        
+        def get_input():
+            str = input(promt)
+            return pd.Timestamp(str)
+        
+        def main():
+            start_date = get_input("Enter the start date (yyyy-mm-dd) format")
+            end_date = get_input("Enter the last date (yyyy-mm-dd) format")
+            time_delta = end_date - start_date
+
+            days = time_delta.days()
+            hours, remainder = divmod(time_delta.seconds, 3600)
+            minutes, _ = divmod(remainder, 60)
+        
+        if __name__ == "__main__":
+            main()
+
+Q9. Write a Python program that reads a CSV file containing categorical data and converts a specified
+    column to a categorical data type. The program should prompt the user to enter the file path, column
+    name, and category order, and then display the sorted data.
+ans:- 
+        import pandas as pd
+ 
+        def main():
+            file_path = input("Enter the CSV file path: ")
+            column_name = input("Enter the column name to convert to categorical: ")
+            category_order = input("Enter the category order (comma-separated): ").split(',')
+
+            df = pd.read_csv(file_path)
+
+            df[column_name] = pd.Categorical(df[column_name], categories=category_order, ordered=True)
+
+            df_sorted = df.sort_values(by=column_name)
+
+            print(df_sorted)
+
+        if __name__ == "__main__":
+            main()
+
+Q10. Write a Python program that reads a CSV file containing sales data for different products and
+    visualizes the data using a stacked bar chart to show the sales of each product category over time. The
+    program should prompt the user to enter the file path and display the chart.
+ans:-   import pandas as pd
+        import matplotlib.pyplot as plt
+
+        def main():
+            file_path = input("Enter the CSV file path: ")
+
+            df = pd.read_csv(file_path)
+
+            required_columns = ['Date', 'ProductCategory', 'Sales']
+            if not all(column in df.columns for column in required_columns):
+                print(f"The CSV file must contain the following columns: {', '.join(required_columns)}")
+                return
+
+            df['Date'] = pd.to_datetime(df['Date'])
+
+            sales_data = df.groupby(['Date', 'ProductCategory'])['Sales'].sum().unstack(fill_value=0)
+
+            sales_data.plot(kind='bar', stacked=True, figsize=(10, 7))
+
+            plt.xlabel('Date')
+            plt.ylabel('Sales')
+            plt.title('Sales of Each Product Category Over Time')
+            plt.legend(title='Product Category')
+            plt.xticks(rotation=45)
+            plt.tight_layout()
+
+            plt.show()
+
+        if __name__ == "__main__":
+            main()         
+
+
+Q11. You are given a CSV file containing student data that includes the student ID and their test score. Write
+    a Python program that reads the CSV file, calculates the mean, median, and mode of the test scores, and
+    displays the results in a table.
+ans:-   import pandas as pd
+        def main():
+            file_path = input("Enter the file path of the CSV file containing the student data: ")
+
+            df = pd.read_csv(file_path)
+
+            required_columns = ['Student ID', 'Test Score']
+            if not all(column in df.columns for column in required_columns):
+                print(f"The CSV file must contain the following columns: {', '.join(required_columns)}")
+                return
+
+            mean_score = df['Test Score'].mean()
+            median_score = df['Test Score'].median()
+            mode_score = df['Test Score'].mode()
+
+            results = [
+                ['Mean', f"{mean_score:.1f}"],
+                ['Median', f"{median_score:.1f}"],
+                ['Mode', ', '.join(map(str, mode_score))]
+            ]
+
+            print(results)
+
+        if __name__ == "__main__":
+            main()
