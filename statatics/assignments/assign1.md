@@ -93,4 +93,5 @@ ans:- commong measures of central tendency and variability are used to describe 
       c) mode
       d) range 
       e) standard deviation
-      
+    
+
