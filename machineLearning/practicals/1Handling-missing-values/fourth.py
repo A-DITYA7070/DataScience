@@ -52,8 +52,8 @@ x_new = np.linspace(1,5,10)
 y_interp = np.polyval(p,x_new)
 
 # plt.scatter(x,y)
-plt.scatter(x_new,y_interp)
-plt.show()
+# plt.scatter(x_new,y_interp)
+# plt.show()
 
 
 
