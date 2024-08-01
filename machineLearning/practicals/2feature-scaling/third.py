@@ -7,15 +7,15 @@
 """
 import numpy as np
 
-# def UnitScaling(l):
-#     scaled = []
-#     magnitue = 0
-#     for ele in l:
-#         magnitue += ele**2
-#     magnitue = np.sqrt(magnitue)
-#     for ele in l:
-#         scaled.append((ele/magnitue))
-#     return scaled
+def UnitScaling(l):
+    scaled = []
+    magnitue = 0
+    for ele in l:
+        magnitue += ele**2
+    magnitue = np.sqrt(magnitue)
+    for ele in l:
+        scaled.append((ele/magnitue))
+    return scaled
 
 # age = [24,25,26,27,28]
 # scaled_age = UnitScaling(age)
@@ -29,18 +29,29 @@ import pandas as pd
 from sklearn.preprocessing import normalize
 
 
-# df = sns.load_dataset("iris")
+df = sns.load_dataset("iris")
 
-# normalize_data = pd.DataFrame(normalize(df[['sepal_length','sepal_width','petal_length','petal_width']]),columns=['sepal_length','sepal_width','petal_length','petal_width'])
+normalize_data = pd.DataFrame(normalize(df[['sepal_length','sepal_width','petal_length','petal_width']]),columns=['sepal_length','sepal_width','petal_length','petal_width'])
 # print(normalize_data)
 
-# l = list(df['sepal_length'])
+l = list(df['sepal_length'])
+
+l1 = UnitScaling(l)
+
+# sns.histplot(l)
+# plt.show()
+
 
 # nl = pd.Series(UnitScaling(l))
 
 # print(nl)
 # print(normalize_data['sepal_length'])
 
+df2 = normalize(df[['sepal_length','sepal_width','petal_length','petal_width']])
+
+sns.scatterplot(df2)
+plt.title("scatter plot after unit vector normalization")
+plt.show()
 
 
 

@@ -103,41 +103,34 @@
 # plt.show()
 
 
-# import pandas as pd
-# import seaborn as sns
-# import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-# # Load the JSON file into a DataFrame
-# csv = pd.read_json("json2.json")
-# findings = pd.json_normalize(csv['findings'])
+csv = pd.read_json("json2.json")
+findings = pd.json_normalize(csv['findings'])
 
-# # Print column names to debug
-# print("Columns in findings DataFrame:", findings.columns)
+print("Columns in findings DataFrame:", findings.columns)
 
-# # Extract the relevant columns
-# names = findings['name']
-# risk_severity = findings['risk.severity']
+names = findings['name']
+risk_severity = findings['risk.severity']
 
-# # Create a DataFrame for plotting
-# plot_data = pd.DataFrame({
-#     'name': names,
-#     'risk_severity': risk_severity
-# })
+plot_data = pd.DataFrame({
+    'name': names,
+    'risk_severity': risk_severity
+})
 
-# # Ensure no missing values for plotting
-# plot_data = plot_data.dropna(subset=['risk_severity'])
+plot_data = plot_data.dropna(subset=['risk_severity'])
 
-# # Create the plot with increased figure size
-# plt.figure(figsize=(14, 10))  # Increase size to ensure names are visible
-# sns.barplot(data=plot_data, x='name', y='risk_severity', palette='viridis')
+plt.figure(figsize=(14, 10))  # Increase size to ensure names are visible
+sns.barplot(data=plot_data, x='name', y='risk_severity', palette='viridis')
 
-# # Rotate x-axis labels and adjust alignment
-# plt.xticks(rotation=45, ha='right')  # Rotate labels and align them to the right
-# plt.xlabel('Finding Name')
-# plt.ylabel('Risk Severity')
-# plt.title('Risk Severity of Findings by Name')
-# plt.tight_layout()  # Adjust layout to fit labels and titles
-# plt.show()
+plt.xticks(rotation=45, ha='right')  # Rotate labels and align them to the right
+plt.xlabel('Finding Name')
+plt.ylabel('Risk Severity')
+plt.title('Risk Severity of Findings by Name')
+plt.tight_layout()  
+plt.show()
 
 
 # import pandas as pd
