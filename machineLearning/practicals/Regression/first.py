@@ -1,4 +1,6 @@
 # Simple Linear Regression..
+import warnings
+warnings.filterwarnings("ignore")
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -85,10 +87,11 @@ adjusted_r_square = 1 - (1-score)*(len(y_test)-1)/(len(y_test) - X_test.shape[1]
 
 # new data point weight is 80
 
-scaled_weight = scaler.transform([[80]])
+print("Enter the weight to predict the height ::-- ")
+weight = int(input())
+scaled_weight = scaler.transform([[weight]])
 predicted_value = regressor.predict([scaled_weight[0]])
-print("the height prediction for weight 80 kg is ",predicted_value)
-
+print(f"The predicted height for weight {weight} is :-- ",predicted_value)
 # Assumption for good model in simple regression model..
 '''
 1) Plot a scatter plot for the prediction.. (If the scatter plot is linearly distributed then the model is performing well)
@@ -102,7 +105,7 @@ residuals = y_test - Y_pred_test
 # plt.scatter(y_test,Y_pred_test)
 # plt.show()
 
-import seaborn as sns
+# import seaborn as sns
 # sns.distplot(residuals,kde=True)
 # plt.show()
 
