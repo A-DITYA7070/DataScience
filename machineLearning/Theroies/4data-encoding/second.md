@@ -1,0 +1,4 @@
+<!-- Target Guided ordinal encoding -->
+It is a technique used to encode categorcal variables based on their relationship with the target variables. This encoding technique is useful when we have a categorical variable with a large number of unique categories, and we want to use this variable as a feature in our machine learning model.
+
+In target guided ordinal encoding we replace each category in the categorical variable with a numerical value based on the mean or median of the target variable for that category. This creates a monotonic relationship between the categorical variable and the target variable, which can improve the predictive power of our model.
